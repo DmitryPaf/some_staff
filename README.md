@@ -1,1 +1,3 @@
-Hello, Hexlet! How are you?
+Hello!
+How are you?
+I store some scripts here
